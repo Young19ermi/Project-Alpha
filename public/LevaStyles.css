@@ -1,0 +1,23 @@
+/* Reduce Leva panel height */
+.leva {
+    max-height: 200px; /* Set max height */
+    overflow-y: auto; /* Enable scrolling */
+    position: absolute;
+    top: 10px; /* Adjust position */
+    right: 10px;
+    width: 220px; /* Adjust width */
+  }
+  
+  /* Reduce the control row height */
+  .leva .leva-c {
+    min-height: 20px !important;
+    padding: 2px 5px !important;
+  }
+  
+  /* Reduce the title bar height */
+  .leva .leva-t {
+    height: 22px !important;
+    font-size: 12px !important;
+    padding: 2px 5px !important;
+  }
+  
