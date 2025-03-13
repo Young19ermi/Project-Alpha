@@ -1,12 +1,15 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+//Lessons i have learned
+// 1. The useFrame is used to animate the objects in the scene
+// 2. The useRef is used to refer the object in the scene
+// 3. The mesh is the building block of the scene
+// 4. The meshStandardMaterial is used to give the color to the object
+// 5. The boxGeometry is used to give the shape to the object
+// 6. The args is used to give the size to the object
+// 7. The position is used to give the position to the object
+// 8. The group is used to control the objects inside the group
+// 9. The directionalLight is used to give the light to the object
+// 10. The ambientLight is used to give the light to the object
+// 11. Remove unnessasry Imports Like SphericalGeometry since react fiber by default has the geometry of the object  
+// 12. The useFrame is used to animate the objects in the scene
+// 13. The useRef is used to refer the object in the scene
+// 14. Lighting is Necessary to see the object in the scene
