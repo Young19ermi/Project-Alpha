@@ -5,10 +5,15 @@ import App from './App.jsx'
 import Configurator from './ShowRoom/home.jsx';
 import State from './ShowRoom/home.jsx';
 import Animations from './ShowRoom/createroom.jsx';
+import Animation from './ShowRoom/store.jsx';
+import Anim from './Variant/tshirt.jsx';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     {/* <State/> */}
-    <Animations/>
+    <Anim/>
+    {/*<Animations/>*/}
+    {/* <Animation/> */}
+
 
   </StrictMode>,
 )
