@@ -27,12 +27,11 @@ const Model = ({color})=>{
                 console.log(child.name)
                 child.material.color.set(outercolor)
                 child.material.map = Materials;
-                child.material.needsUpdate = true;
+                child.material.needsUpdate = false;
                 // child.material.map = Materials
                 // child.material.needsUpdate = false
             }
         },[Obj,color])
-
     })
     return(
       
@@ -52,6 +51,7 @@ const Model = ({color})=>{
 }
 
 const Animation = ()=> {
+    
     return(
         <>
         <Leva
@@ -62,9 +62,12 @@ const Animation = ()=> {
            colors: { background: "#1e1e1e", text: "#fff", highlight1: "#f0b400" }, // Custom theme
          }}
         />
+        
         <Canvas>
            <OrbitControls />
             <ambientLight intensity={1}/>
+            
+            <perspectiveCamera focus={56} position={[1,1,6]}/>
             <directionalLight position={[10,10,10]} intensity={1}/>
             <Model color = "red"/>
         </Canvas>
@@ -73,7 +76,6 @@ const Animation = ()=> {
     )
 }
 export default Animation
-
 
 
 // //Task For Tommorow

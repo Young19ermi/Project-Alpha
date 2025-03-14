@@ -39,7 +39,7 @@
 //   )
 // }
 
-// // export default animation
+// export default animation
 // import { Canvas, useFrame } from "@react-three/fiber";
 // import { OrbitControls } from "@react-three/drei";
 // import { useRef } from "react";
@@ -75,101 +75,104 @@
 
 // export default cube;
 
-// import { useRef, useState } from 'react'
-// import { Canvas, useFrame } from '@react-three/fiber'
-// import { AmbientLight, BoxGeometry, DirectionalLight, OctahedronGeometry, SphereGeometry, TetrahedronGeometry, WireframeGeometry } from 'three'
-
-// function Box() {
-//   const meshRef = useRef()
-//   const [hovered, setHovered] = useState(false)
-//   const [clicked, setClicked] = useState(false)
-//   const [scale, setScale] = useState(1)
-
-//   useFrame((state, delta) => {
-//     const highspeed = hovered ? 0.09 : 0.02
-//     // Rotation (only Y-axis)
-//     if (!clicked) {
-//       meshRef.current.rotation.x += 0.01
-//       meshRef.current.rotation.y += 0.01
-//       meshRef.current.rotation.z += 0.01
-//     }
-//     if (hovered){
-//       meshRef.current.rotation.z += highspeed - 0.08
-//     }
-//     if (clicked){
-//         setScale((1 + state.clock.elapsedTime * 0.5))
-//     }
-//   })
-
-//   return (
-//     <mesh
-//       ref={meshRef}
-//       scale={scale}
-//       onClick={() => setClicked(!clicked)}
-//       onPointerOver={() => setHovered(true)}
-//       onPointerOut={() => setHovered(false)}
-//     >
-//       <sphereGeometry />
-//       {/* <boxGeometry args = {[1,1,1]}/> */}
-//       <meshStandardMaterial color={hovered ? 'blue' : 'lightgreen'} wireframe/>
-//     </mesh>
-//   )
-// }
-
-// export default function App() {
-//   return (
-//     <Canvas antiAlias : false >
-//       <ambientLight intensity = {1}/>
-//       {/* <directionalLight position = {[1,1,1]} /> */}
-//       <Box />
-//     </Canvas>
-//   )
-// }
-
-
-
+import { useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { useRef, useState } from 'react';
-
-
-
-const Config= ({position, size,color})=> {
-
-  const meshref = useRef();
-  const [clicked, setClicked] = useState(false)
+import { AmbientLight, BoxGeometry, DirectionalLight, OctahedronGeometry, SphereGeometry, TetrahedronGeometry, WireframeGeometry } from 'three'
+import { OrbitControls } from '@react-three/drei'
+function Box() {
+  const meshRef = useRef()
   const [hovered, setHovered] = useState(false)
+  const [clicked, setClicked] = useState(false)
+  const [scale, setScale] = useState(1)
 
-
-  useFrame ( (state, delta)=> {
-    if (meshref.current && !clicked){
-      meshref.current.rotation.z += 0.1
+  useFrame((state, delta) => {
+    const highspeed = hovered ? 0.09 : 0.02
+    // Rotation (only Y-axis)
+    if (!clicked) {
+      meshRef.current.rotation.x += 0.01
+      meshRef.current.rotation.y += 0.01
+      meshRef.current.rotation.z += 0.01
     }
     if (hovered){
-      meshref.current.rotation.z += 1
+      meshRef.current.rotation.z += highspeed - 0.08
+    }
+    if (clicked){
+        setScale(((1 + state.clock.elapsedTime * 0.5)))
     }
   })
+
   return (
-    <mesh 
-    position = {position} 
-    ref = {meshref}
-    onClick={()=>{clicked? setClicked(false) :  setClicked(true)}}
-    onPointerOver = {()=> {hovered ? setHovered(false): setHovered(true)}}
-    onContextMenu={(e)=>{e.preventDefault()}}>
-      <sphereGeometry  args = {size}/>
-      <meshStandardMaterial color = {color} wireframe = {true}/>
+    <mesh
+      ref={meshRef}
+      scale={scale}
+      onClick={() => setClicked(!clicked)}
+      onPointerOver={() => setHovered(true)}
+      onPointerOut={() => setHovered(false)}
+    >
+      <sphereGeometry />
+      {/* <boxGeometry args = {[1,1,1]}/> */}
+      <meshStandardMaterial color={hovered ? 'blue' : 'green'} wireframe/>
     </mesh>
   )
 }
-const Animation = ()=> {
-  return(
 
-  <Canvas>
-    <ambientLight intensity={5}/>
-    <Config position = {[1,0,-1]} size = {[1,16,16]} color = {"green"}/>
-  </Canvas> 
- )
+export default function App() {
+  return (
+    <Canvas antiAlias : false >
+      <OrbitControls/>
+      <ambientLight intensity = {1}/>
+      {/* <directionalLight position = {[1,1,1]} /> */}
+      <Box />
+    </Canvas>
+  )
 }
 
-export default Animation;
+
+
+// import { Canvas, useFrame } from '@react-three/fiber'
+// import { useRef, useState } from 'react';
+
+
+
+// const Config= ({position, size,color})=> {
+
+//   const meshref = useRef();
+//   const [clicked, setClicked] = useState(false)
+//   const [hovered, setHovered] = useState(false)
+
+//   useFrame ( (state, delta)=> {
+//     if (meshref.current && !clicked){
+//       meshref.current.rotation.x += 0.01
+//       meshref.current.rotation.y += 0.01
+//       meshref.current.rotation.z += 0.01
+//     }
+//     if (hovered){
+//       meshref.current.rotation.z += 0.2
+//       setScale(maath.sin((1 + state.clock.elapsedTime * 0.5)))
+
+//     }
+//   })
+//   return (
+//     <mesh 
+//     position = {position} 
+//     ref = {meshref}
+//     onClick={()=>{clicked? setClicked(false) :  setClicked(true)}}
+//     onPointerOver = {()=> {hovered ? setHovered(false): setHovered(true)}}
+//     onContextMenu={(e)=>{e.preventDefault()}}>
+//       <sphereGeometry  args = {size}/>
+//       <meshStandardMaterial color = {color} wireframe = {true}/>
+//     </mesh>
+//   )
+// }
+// const Animation = ()=> {
+//   return(
+//   <Canvas>
+//     <ambientLight intensity={5}/>
+//     <Config position = {[1,0,-1]} size = {[1,16,16]} color = {"green"}/>
+//   </Canvas> 
+//  )
+// }
+
+// export default Animation;
 
 
