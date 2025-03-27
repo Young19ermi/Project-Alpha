@@ -45,8 +45,6 @@ const Model = ({color})=>{
         map={Materials}
       /> */}
       </mesh>
-
-      
       )
 }
 
