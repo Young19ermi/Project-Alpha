@@ -7,12 +7,17 @@ import State from './ShowRoom/home.jsx';
 import Animations from './ShowRoom/createroom.jsx';
 import Animation from './ShowRoom/store.jsx';
 import Anim from './Variant/tshirt.jsx';
+import Home from './Final/index.jsx';
+import Final from './Final/homepage.jsx';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     {/* <State/> */}
-    <Anim/>
-    {/*<Animations/>*/}
-    {/* <Animation/> */}
+    {/* <Anim/> */}
+    <Final/>
+    
+    {/* <Animations/> */}
+     {/* <Animation/> */}
+     {/* <Home/> */}
 
 
   </StrictMode>,
